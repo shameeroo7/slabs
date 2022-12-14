@@ -1,0 +1,52 @@
+pragma solidity ^0.8.16;
+
+contract slabs {
+
+	
+	uint256  slab0;
+	uint256  slab1;
+	uint256  slab2;
+	uint256  slab3;
+	uint256  slab4;
+    
+	uint256  slab0Capacity = 100;
+	uint256  slab1Capacity = 200;
+	uint256  slab2Capacity = 300;
+	uint256  slab3Capacity = 400;
+	uint256  slab4Capacity = 500;
+
+
+	function deposit(uint256 _amount) public {
+		if (slab0 < slab0Capacity) {
+			slab0 += _amount;
+		} else if (slab1 < slab1Capacity) {
+			slab1 += _amount;
+		} else if (slab2 < slab2Capacity) {
+			slab2 += _amount;
+		} else if (slab3 < slab3Capacity) {
+			slab3 += _amount;
+		} else if (slab4 < slab4Capacity) {
+			slab4 += _amount;
+		}
+	}
+
+
+	function checkSlab() public view returns (string[] memory) {
+		string[] memory _checkslabs = new string[](5);
+		if (slab0 < slab0Capacity) {
+			_checkslabs[0] = "Slab0";
+		} else if (slab1 < slab1Capacity) {
+			_checkslabs[1] = "Slab1";
+		} else if (slab2 < 300) {
+			_checkslabs[2] = "Slab2";
+		} else if (slab3 < 400) {
+			_checkslabs[3] = "Slab3";
+		} else if (slab4 < 500) {
+			_checkslabs[4] = "Slab4";
+		}
+		return _checkslabs;
+	}
+	
+
+}
+
